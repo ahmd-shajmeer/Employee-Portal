@@ -1,0 +1,29 @@
+<div style="width: 100%;height: 85vh;" class="d-flex justify-content-center align-items-center">
+    <div style="width: 900px;" class="shadow rounded bg-dark row p-5 align-items-center">
+        <div class="col-lg-6">
+            <img src="https://emergetech.com/wp-content/uploads/2019/01/signup-1.png" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <form #loginForm="ngForm" (ngSubmit)="login()" action="" class="border rounded p-3">
+                <h1 class="fw-bolder mb-3 text-light">LOGIN FORM</h1>
+                <div class="form-floating mb-3">
+                    <input name="email" [(ngModel)]="email" type="email" class="form-control" id="email" placeholder="Enter Email" email required #userEmailInput="ngModel">
+                    <label for="email">Email Address</label>
+                </div>
+                <div *ngIf="userEmailInput.invalid && userEmailInput.touched" class="text-danger fw-bolder fs-5">Invalid Email!!</div>
+                <div class="form-floating mb-3">
+                    <input name="password" [(ngModel)]="password" type="password" class="form-control" id="password" placeholder="Enter Password" pattern="[a-zA-Z0-9]*" minlength="3" required #userPswdInput="ngModel">
+                    <label for="password">Password</label>
+                </div>
+                <div *ngIf="userPswdInput.invalid && userPswdInput.touched" class="text-danger fw-bolder fs-5" >Invalid Email!!</div>
+                <div class="d-grid">
+                    <button [disabled]="loginForm.invalid && loginForm.touched" type="submit" class="btn btn-warning">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <pre>
+    {{email}}
+    {{password}}
+</pre> -->
